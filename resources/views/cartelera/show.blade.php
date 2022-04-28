@@ -4,7 +4,7 @@
      <div class="row">
     <div class="col-md-6 mx-auto mt-4">
     <div class="card p-3">
-    <img src="{{ $pelicula->imagen }}" alt="imagen-pelicula">
+    <img src="/storage/{{ $pelicula->imagen }}" alt="imagen-pelicula">
         <h1 class="text-center card-title">{{ $pelicula->titulo }}</h1>
         <h3 class="card-subtitle mt-2">Clasificación: {{ $pelicula->clasificacion }}</h3>
         <h5 class="card-subtitle mt-2">Director: {{ $pelicula->director }}</h5>
