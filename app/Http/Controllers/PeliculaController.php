@@ -160,8 +160,20 @@ class PeliculaController extends Controller
      * @param  \App\Models\Pelicula  $pelicula
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pelicula $pelicula)
+    public function destroy(Pelicula $pelicula, Request $request )
     {
-        //
+        // return $pelicula;
+        $url = $request['url'];
+        $pelicula = Pelicula::where('url', $url)->get(); 
+        $pelicula = $pelicula[0];
+        
+        if(is_readable(public_path('storage/'. $pelicula->imagen))) 
+        {
+            unlink(public_path('storage/'. $pelicula->imagen));
+        }
+
+        $pelicula->delete();
+
+        return redirect(route('cartelera.index'));
     }
 }

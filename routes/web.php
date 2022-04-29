@@ -27,4 +27,5 @@ Route::group(['middleware' =>['auth', 'verified']], function () {
     Route::post('/cartelera', [PeliculaController::class, 'store'])->name('cartelera.store');
     Route::get('/cartelera/{url}/edit', [PeliculaController::class, 'edit' ])->name('cartelera.edit');
     Route::put('/cartelera/{url}/edit', [PeliculaController::class, 'update' ])->name('cartelera.update');
+    Route::delete('/cartelera/{url}', [PeliculaController::class, 'destroy' ] )->name('cartelera.destroy');
 });
